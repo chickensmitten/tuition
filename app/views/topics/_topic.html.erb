@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-1">Number</div>
+  <div class="col-md-8">Topics</div>
+  <div class="col-md-3">Status</div>
+</div>
+<hr/>
+<% @programme.topics.each do |topic| %>
+<div class="row">
+  <div class="col-md-1"><%= topic.number %></div>
+  <div class="col-md-8"><%= link_to topic.name, programme_topic_path(topic)%></div>
+  <div class="col-md-3"><%= topic.status %></div>
+</div>
+<hr/>
+<% end %>

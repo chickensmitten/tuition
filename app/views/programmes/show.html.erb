@@ -1,0 +1,26 @@
+<p class='pull-right'>
+  [<%= link_to 'edit this programme', edit_programme_path(@programme)%>]
+</p>
+
+<%= render 'shared/content_title', title: @programme.name %>
+
+<%= form_for [@programme, @topic] do |f| %>
+  <%= render "shared/errors", obj: @topic %>
+    <div class="control-group">
+      <%= f.label :number, "Add topic number" %>
+      <%= f.text_field :number %>        
+    </div>
+    <div class="control-group">
+      <%= f.label :name, "Add topic name" %>
+      <%= f.text_field :name %>
+    </div>
+  <%= f.submit "Create topic", class: "btn btn-primary" %>
+<% end %>
+
+<%= render 'topics/topic' %>
+
+
+
+
+
+

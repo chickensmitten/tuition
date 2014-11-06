@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104094046) do
+ActiveRecord::Schema.define(version: 20141106013610) do
+
+  create_table "academies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -20,12 +26,10 @@ ActiveRecord::Schema.define(version: 20141104094046) do
   end
 
   create_table "centres", force: true do |t|
-    t.string   "room"
-    t.string   "day_time"
-    t.integer  "programme_id"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "academy_id"
   end
 
   create_table "posts", force: true do |t|
@@ -37,15 +41,62 @@ ActiveRecord::Schema.define(version: 20141104094046) do
     t.datetime "updated_at"
   end
 
+  create_table "programme_timeslots", force: true do |t|
+  end
+
   create_table "programmes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
+  create_table "room_timeslots", force: true do |t|
+  end
+
+  create_table "rooms", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "centre_id"
+  end
+
+  create_table "timeslots", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "programme_id"
+    t.string   "status"
+    t.integer  "number"
+    t.integer  "user_id"
+  end
+
   create_table "user_categories", force: true do |t|
     t.integer  "category_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_programmes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "programme_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_timeslots", force: true do |t|
+  end
+
+  create_table "user_topics", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

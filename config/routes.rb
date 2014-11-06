@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:destroy]
   resources :users, except: [:destroy]
-  resources :programmes, except: [:destroy]
+  resources :programmes, except: [:destroy] do
+    resources :topics    
+  end
+
   resources :centres, except: [:destroy]
   resources :categories, except: [:destroy]
-
 
 end

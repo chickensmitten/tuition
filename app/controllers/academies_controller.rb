@@ -1,0 +1,3 @@
+class AcademiesController < ApplicationController
+
+end
