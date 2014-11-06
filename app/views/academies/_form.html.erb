@@ -1,0 +1,11 @@
+<%= render 'shared/errors', obj: @academy %>
+
+<div class='well'>
+  <%= form_for @academy do |f| %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit(@academy.new_record? ? 'Create Academy' : 'Update Academy', class: 'btn btn-primary')%>
+  <% end %>
+</div>

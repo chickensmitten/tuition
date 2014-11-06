@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     resources :topics    
   end
 
-  resources :centres, except: [:destroy]
   resources :categories, except: [:destroy]
+  resources :academies do
+    resources :centres, except: [:destroy] do
+      resources :rooms
+    end
+  end
+  resources :timeslots
 
 end

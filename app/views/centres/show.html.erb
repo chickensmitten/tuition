@@ -1,11 +1,9 @@
 <p class='pull-right'>
-  [<%= link_to 'edit this centre', edit_centre_path(@centre)%>]
+  [<%= link_to 'Create a room', new_academy_centre_room_path(@academy, @centre, @room)%>]    
+  [<%= link_to 'Edit this centre', edit_academy_centre_path(@academy, @centre)%>]
 </p>
 
 
-<%= render 'shared/content_title', title: @centre %>
+<%= render 'shared/content_title', title: @centre.name %>
 
-<p>
-<%= @post.description %>
-</p>
-<hr/>
+<%= render 'rooms/room' %>

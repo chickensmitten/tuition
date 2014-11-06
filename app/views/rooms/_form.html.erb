@@ -1,0 +1,9 @@
+<%= form_for [@academy, @centre, @room] do |f| %>  
+  <%= render 'shared/errors', obj: @room %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit(@room.new_record? ? 'Create Room' : 'Update Room', class: 'btn btn-primary')%>
+<% end %>
+

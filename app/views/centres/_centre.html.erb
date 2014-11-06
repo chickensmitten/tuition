@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-9">Centres</div>
+  <div class="col-md-3">Status</div>
+</div>
+<hr/>
+<% @academy.centres.each do |centre| %>
+<div class="row">
+  <div class="col-md-9"><%= link_to centre.name, academy_centre_path(@academy, centre)%></div>
+  <div class="col-md-3"><%= centre.academy_id %></div>
+</div>
+<hr/>
+<% end %>

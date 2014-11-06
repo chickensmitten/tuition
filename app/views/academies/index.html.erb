@@ -1,0 +1,9 @@
+<%= render 'shared/content_title', title: 'All Academies' %>
+<p class='pull-right'>
+  <%= link_to 'New Academy', new_academy_path, class: 'btn btn-success btn-small navbar-btn' %>
+</p>      
+<p class= 'container'>
+<% @academies.each do |academy| %>
+  <%= render 'academy', academy: academy %>
+<% end %>
+</p>

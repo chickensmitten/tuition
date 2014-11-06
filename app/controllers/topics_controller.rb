@@ -4,12 +4,14 @@ class TopicsController < ApplicationController
   end
 
   def show
-    #@topic = @programme.topics.find(params[:id])    
-    @topic = Topic.find(params[:id])
+    @programme = Programme.find(params[:programme_id])    
+    @topic = @programme.topics.find(params[:id])    
+    #@topic = Topic.find(params[:id])
   end
 
   def new
-    @topic = Topic.new
+    @programme = Programme.find(params[:programme_id])    
+    @topic = @programme.topics.new
   end
 
   def create #topic create is nested beneath programme, hence @programme must be called
@@ -28,14 +30,16 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @programme = Programme.find(params[:programme_id])  
+    @topic = @programme.topics.find(params[:id])          
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @programme = Programme.find(params[:programme_id])      
+    @topic = @programme.topics.find(params[:id])  
     if @topic.update(topic_params)
       flash[:notice] = "This topic was updated."
-      redirect_to topics_path(@topic)
+      redirect_to programme_topic_path(@programme, @topic)
     else
       render :edit
     end

@@ -1,0 +1,8 @@
+<% @centre.rooms.each do |room| %>
+<div class="row">
+  <div class='span8 well'>
+    <h3><%= link_to room.name, academy_centre_room_path(@academy, @centre, room)%></h3>
+  </div>
+</div>
+<hr/>
+<% end %>
