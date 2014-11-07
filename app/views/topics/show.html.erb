@@ -1,0 +1,21 @@
+<p class='pull-right'>
+  [<%= link_to 'edit this topic', edit_programme_topic_path(@programme, @topic)%>]
+</p>
+
+
+<%= render 'shared/content_title', title: @topic.name %>
+
+<p>
+Topic Number: <%= @topic.number %>
+</p>
+<p>
+Description: 
+</p>
+<p>
+Pictures:
+</p>
+<p>
+Video Embed:
+</p>
+      <%= link_to 'Complete', "", class: 'btn btn-success btn-small navbar-btn' %>
+<hr/>

@@ -1,0 +1,11 @@
+<%= render 'shared/errors', obj: @programme %>
+
+<div class='well'>
+  <%= form_for @programme do |f| %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit(@programme.new_record? ? 'Create Programme' : 'Update Programme', class: 'btn btn-primary')%>
+  <% end %>
+</div>

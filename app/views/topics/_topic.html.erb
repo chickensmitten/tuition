@@ -1,0 +1,20 @@
+<table class="table table-hover">
+   <thead>
+      <tr>
+         <th class="col-md-1">Number</th>
+         <th class="col-md-8">Topics</th>
+         <th class="col-md-3">Status</th>
+      </tr>
+   </thead>
+ 
+   <tbody>
+      <% @programme.topics.each do |topic| %>       
+        <tr>       
+           <td><%= topic.number %></td>
+           <td><%= link_to topic.name, programme_topic_path(@programme, topic)%></td>
+           <td><%= topic.status %></td>
+        </tr>
+      <% end %>      
+   </tbody>
+</table>
+

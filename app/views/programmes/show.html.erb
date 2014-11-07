@@ -1,0 +1,14 @@
+<p class='pull-right'>
+  [<%= link_to 'Create a topic', new_programme_topic_path(@programme, @topic)%>]  
+  [<%= link_to 'Edit this programme', edit_programme_path(@programme)%>]
+</p>
+
+<%= render 'shared/content_title', title: @programme.name %>
+
+<%= render 'topics/topic' %>
+
+
+
+
+
+

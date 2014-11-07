@@ -1,4 +1,4 @@
 class Centre < ActiveRecord::Base
-  belongs_to :programme
-  belongs_to :user
+  belongs_to :academy
+  has_many :rooms
 end

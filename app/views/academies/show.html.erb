@@ -1,0 +1,8 @@
+<p class='pull-right'>
+  [<%= link_to 'Create a centre', new_academy_centre_path(@academy, @centre)%>]   
+  [<%= link_to 'Edit this academy', edit_academy_path(@academy)%>]
+</p>
+
+<%= render 'shared/content_title', title: @academy.name %>
+
+<%= render 'centres/centre' %>

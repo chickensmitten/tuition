@@ -1,5 +1,9 @@
 <%= render 'shared/content_title', title: 'All Posts' %>
-
+<p class='pull-right'>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small navbar-btn' %>
+</p>
+<p class= 'container'>
 <% @posts.each do |post| %>
   <%= render 'post', post: post %>
+</p>
 <% end %>

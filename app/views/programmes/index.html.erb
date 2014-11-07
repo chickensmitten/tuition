@@ -1,0 +1,9 @@
+<%= render 'shared/content_title', title: 'All Programmes' %>
+<p class='pull-right'>
+  <%= link_to 'New Programme', new_programme_path, class: 'btn btn-success btn-small navbar-btn' %>
+</p>      
+<p class= 'container'>
+<% @programmes.each do |programme| %>
+  <%= render 'programme', programme: programme %>
+<% end %>
+</p>

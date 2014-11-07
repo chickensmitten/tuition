@@ -1,0 +1,14 @@
+<%= form_for [@programme, @topic] do |f| %>
+    <%= render 'shared/errors', obj: @topic %>
+    <div class="control-group">
+      <%= f.label :number, "Add topic number" %>
+      <%= f.text_field :number %>        
+    </div>
+    <div class="control-group">
+      <%= f.label :name, "Add topic name" %>
+      <%= f.text_field :name %>
+    </div>
+  <%= f.submit(@topic.new_record? ? 'Create Topic' : 'Update Topic', class: 'btn btn-primary')%>
+<% end %>
+
+<!-- when submitting empty forms, exception no route matches error will be thrown. --> 
