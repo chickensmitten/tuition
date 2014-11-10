@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106013610) do
+ActiveRecord::Schema.define(version: 20141109032036) do
 
   create_table "academies", force: true do |t|
     t.string   "name"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20141106013610) do
     t.datetime "updated_at"
   end
 
+  create_table "centre_intakes", force: true do |t|
+    t.integer  "centre_id"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "centres", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,11 +39,28 @@ ActiveRecord::Schema.define(version: 20141106013610) do
     t.integer  "academy_id"
   end
 
+  create_table "intakes", force: true do |t|
+    t.string   "name"
+    t.integer  "programme_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "start_date"
+    t.integer  "centre_id"
+    t.integer  "user_id"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "description"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programme_intakes", force: true do |t|
+    t.integer  "intake_id"
+    t.integer  "programme_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +91,13 @@ ActiveRecord::Schema.define(version: 20141106013610) do
     t.datetime "updated_at"
   end
 
+  create_table "topic_intakes", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "topics", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -80,6 +111,13 @@ ActiveRecord::Schema.define(version: 20141106013610) do
   create_table "user_categories", force: true do |t|
     t.integer  "category_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_intakes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "intake_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

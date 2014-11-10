@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :categories, through: :user_categories
   has_many :user_timeslots
   has_many :timeslots, through: :user_timeslots  
+  has_many :user_intakes
+  has_many :intakes, through: :user_intakes  
 
   has_secure_password validations: false
 

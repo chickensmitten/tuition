@@ -1,8 +1,12 @@
 <ul class="nav nav-pills nav-stacked" role="tablist">
-  <li role="presentation" class='<%= 'active' if params[:tab].nil? %>'><a href="#">Dashboard</a></li>
+  <li role="presentation" class='<%= 'active' if params[:tab] == 'dashboard' %>'>
+  <%= link_to 'Dashboard', posts_path(@user, tab: 'dashboard') %>  
   <li role="presentation" class='<%= 'active' if params[:tab] == 'announcements' %>'>
   <%= link_to 'Announcements', posts_path(@user, tab: 'announcements') %>
   </li>
+  <li role="presentation" class='<%= 'active' if params[:tab] == 'intake' %>'>  
+  <%= link_to 'Intake', intakes_path(@user, tab: 'intake')  %>
+  </li>    
   <li role="presentation" class='<%= 'active' if params[:tab] == 'programme' %>'>  
   <%= link_to 'Programme', programmes_path(@user, tab: 'programme')  %>
   </li>
