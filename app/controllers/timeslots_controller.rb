@@ -2,6 +2,8 @@ class TimeslotsController < ApplicationController
 
   def index
     @timeslots = Timeslot.all
+    @timeslots_by_date = @timeslots.group_by(&:starts_at)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today    
   end
 
   def show
@@ -13,11 +15,12 @@ class TimeslotsController < ApplicationController
   end
 
   def create
+    binding.pry
     @timeslot = Timeslot.new(timeslot_params)
 
     if @timeslot.save
       flash[:notice] = "Your timeslot was created."
-      redirect_to timeslot_path(@timeslot)
+      redirect_to timeslots_path(@timeslot)
     else
       render :new
     end
@@ -40,7 +43,7 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:name)
+    params.require(:timeslot).permit(:name, starts_at: [(1i), (2i), (3i)])
   end
 
 end

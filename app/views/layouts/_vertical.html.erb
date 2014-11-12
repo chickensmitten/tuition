@@ -13,4 +13,7 @@
   <li role="presentation" class='<%= 'active' if params[:tab] == 'academy' %>'>  
   <%= link_to 'Academy', academies_path(@user, tab: 'academy')  %>
   </li>
+  <li role="presentation" class='<%= 'active' if params[:tab] == 'timeslot' %>'>  
+  <%= link_to 'Timetable', timeslots_path(@user, tab: 'timeslot')  %>
+  </li>  
 </ul>

@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   end
 
   resources :intakes do
-    resources :klasses do
-      resources :timeslots
-    end
+    resources :klasses
   end
+      
+  resources :timeslots
 
 end

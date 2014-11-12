@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111142035) do
+ActiveRecord::Schema.define(version: 20141112064610) do
 
   create_table "academies", force: true do |t|
     t.string   "name"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20141111142035) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "starts_at"
   end
 
   create_table "topic_intakes", force: true do |t|
