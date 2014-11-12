@@ -1,3 +1,31 @@
         <div class='control-group container'>          
           <%= f.collection_select :timeslot_ids, Timeslot.all, :id, :name, include_blank: true %>    
         </div>
+
+<div class="row">
+      <div class="col-md-5">     
+      <%= f.label "Topics" %>
+      </div>
+      <div class="col-md-4">      
+      <%= f.label "Date and Time" %> 
+      </div>
+      <div class="col-md-8">
+        <% @klass.programmes.each do |programme| %>            
+          <% @klass.topics.each do |topic| %>        
+          <div class="col-md-1">
+            <%= topic.number %>
+          </div>
+          <div class="col-md-7">
+            <%= topic.name %>
+          </div>
+          <div class="col-md-4">             
+            <%= f.fields_for :timeslots do |timeslot| %>
+            <div class='control-group container'>          
+              <%= timeslot.collection_select :timeslots, Timeslot.all, :id, :name, include_blank: true %>    
+            </div>
+            <% end %>         
+          </div>          
+          <% end %>
+        <% end %>                                 
+      </div>                              
+    </div>          

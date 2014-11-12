@@ -42,7 +42,32 @@ class KlassesController < ApplicationController
   private
 
   def klass_params
-    params.require(:klass).permit(:name, :programme_ids, :centre_ids, :timeslot_ids, :room_ids, topic_ids: [], :timeslots_attributes => [:id, :name])
+  #  klass_attributes = params.require(:klass).permit(:name, :programme_ids, :centre_ids, :timeslot_ids, :room_ids, topic_ids: [], :timeslots_attributes => [:id, :name])
+  #  timeslots_attributes = klass_attributes.delete("timeslots")
+  #  @klass = Klass.new(klass_attributes)
+  #  @klass.timeslots = timeslots_attributes.map{|c| Timeslot.new(c)}
+    params.require(:klass).permit!
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

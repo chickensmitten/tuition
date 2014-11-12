@@ -15,7 +15,6 @@ class TimeslotsController < ApplicationController
   end
 
   def create
-    binding.pry
     @timeslot = Timeslot.new(timeslot_params)
 
     if @timeslot.save
@@ -43,7 +42,7 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:name, starts_at: [(1i), (2i), (3i)])
+    params.require(:timeslot).permit(:name,  :starts_at)
   end
 
 end

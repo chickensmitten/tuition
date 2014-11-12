@@ -13,8 +13,8 @@
     <%= date.day %>
     <% if @timeslots_by_date[date] %>
       <ul>
-        <% @timeslots_by_date[date].each do |article| %>
-          <li><%= link_to article.name, article %></li>
+        <% @timeslots_by_date[date].each do |timeslot| %>
+          <li><%= link_to timeslot.name, timeslot %></li>
         <% end %>
       </ul>
     <% end %>
