@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109032036) do
+ActiveRecord::Schema.define(version: 20141111142035) do
 
   create_table "academies", force: true do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20141109032036) do
     t.datetime "updated_at"
   end
 
+  create_table "centre_timeslots", force: true do |t|
+    t.integer  "centre_id"
+    t.integer  "timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "centres", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,6 +54,55 @@ ActiveRecord::Schema.define(version: 20141109032036) do
     t.string   "start_date"
     t.integer  "centre_id"
     t.integer  "user_id"
+  end
+
+  create_table "klass_centres", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "centre_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_dates", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_programmes", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "programme_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_rooms", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_timeslots", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_topics", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klasses", force: true do |t|
+    t.string   "name"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
@@ -98,6 +154,13 @@ ActiveRecord::Schema.define(version: 20141109032036) do
     t.datetime "updated_at"
   end
 
+  create_table "topic_timeslots", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "topics", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -118,6 +181,13 @@ ActiveRecord::Schema.define(version: 20141109032036) do
   create_table "user_intakes", force: true do |t|
     t.integer  "user_id"
     t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_klasses", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

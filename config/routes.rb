@@ -6,21 +6,24 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
-  resources :posts, except: [:destroy]
-  resources :users, except: [:destroy]
-  resources :categories, except: [:destroy]
+  resources :posts
+  resources :users
+  resources :categories
 
-  resources :programmes, except: [:destroy] do
+  resources :programmes do
     resources :topics    
   end
 
   resources :academies do
-    resources :centres, except: [:destroy] do
+    resources :centres do
       resources :rooms
     end
   end
-  
-  resources :timeslots
-  resources :intakes, except: [:destroy]
+
+  resources :intakes do
+    resources :klasses do
+      resources :timeslots
+    end
+  end
 
 end

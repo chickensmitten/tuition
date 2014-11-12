@@ -1,0 +1,9 @@
+<%= render 'shared/content_title', title: 'All Timeslots' %>
+<p class='pull-right'>
+  <%= link_to 'New Timeslot', new_timeslot_path, class: 'btn btn-success btn-small navbar-btn' %>
+</p>      
+<p class= 'container'>
+<% @timeslots.each do |timeslot| %>
+  <%= render 'timeslot', timeslot: timeslot %>
+<% end %>
+</p>

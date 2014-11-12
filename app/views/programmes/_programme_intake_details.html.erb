@@ -1,4 +1,27 @@
 <div class="row">
-Programmes Available
 </div>
-<%= render 'topics/topic_intake_details'%>
+<p class= 'container'>
+<% @intake.programmes.each do |programme_intake| %>
+  <div class="row">
+    <h5><%= link_to programme_intake.name, programme_path(programme_intake)  %></h5>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+         <th class="col-md-1">Number</th>
+         <th class="col-md-8">Topics</th>
+         <th class="col-md-1">Timeslots</th>         
+        </tr>
+      </thead>
+
+      <tbody>
+        <% programme_intake.topics.each do |topic| %>       
+          <tr>       
+            <td><%= topic.number %></td>
+            <td><%= topic.name %></td>          
+          </tr>
+        <% end %>              
+      </tbody>
+    </table>
+  </div>
+<% end %>
+</p>

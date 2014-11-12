@@ -1,14 +1,8 @@
-
 <p class='pull-right'> 
+  [<%= link_to 'Create a class', new_intake_klass_path(@intake, @klass)%>]   
   [<%= link_to 'Edit this Intake', edit_intake_path(@intake)%>]
 </p>
 
 <%= render 'shared/content_title', title: @intake.name %>
-<p class= 'container'>
-  <div class="row">
-    Start Date:
-    <h5><%= link_to @intake.start_date %></h5>
-  </div>
-</p>
-<%= render 'programmes/programme_intake_details'%>
 
+<%= render 'klasses/klass' %>

@@ -15,10 +15,7 @@ gem 'bcrypt-ruby'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-
-group :assets do
- gem 'jquery-ui-rails'
-end
+gem 'simple_form'
 
 group :development do
   gem 'quiet_assets'
