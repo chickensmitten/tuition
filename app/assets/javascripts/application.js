@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap.min
 //= require turbolinks
+//= require cocoon
 //= require_self
 //= require_tree .

@@ -16,9 +16,10 @@ class Klass < ActiveRecord::Base
   has_many :klass_dates
   has_many :dates, through: :klass_dates  
 
+  accepts_nested_attributes_for :timeslots, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :klass_timeslots, :reject_if => :all_blank, allow_destroy: :true
   accepts_nested_attributes_for :user_klasses
   accepts_nested_attributes_for :klass_programmes
-  accepts_nested_attributes_for :klass_timeslots
   accepts_nested_attributes_for :klass_centres
   accepts_nested_attributes_for :klass_rooms  
   accepts_nested_attributes_for :klass_topics      

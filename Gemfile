@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'simple_form'
+gem 'cocoon'
 
 group :development do
   gem 'quiet_assets'
