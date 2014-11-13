@@ -18,10 +18,11 @@ class Klass < ActiveRecord::Base
 
   accepts_nested_attributes_for :timeslots, :reject_if => :all_blank, allow_destroy: :true
   accepts_nested_attributes_for :klass_timeslots, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :topics, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :klass_topics, :reject_if => :all_blank, allow_destroy: :true  
   accepts_nested_attributes_for :user_klasses
   accepts_nested_attributes_for :klass_programmes
   accepts_nested_attributes_for :klass_centres
-  accepts_nested_attributes_for :klass_rooms  
-  accepts_nested_attributes_for :klass_topics      
+  accepts_nested_attributes_for :klass_rooms    
   accepts_nested_attributes_for :klass_dates
 end

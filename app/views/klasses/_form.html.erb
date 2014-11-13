@@ -20,19 +20,15 @@
     </div>      
    
     <div class="row">
-      <div class="col-md-4">  
-      <fieldset id="klass-timeslots">     
-        <ol>      
+      <div class="col-md-12">  
+      <fieldset id="klass-timeslots">      
           <%= f.fields_for :timeslots do |timeslot| %>
             <%= render 'timeslot_fields', f: timeslot %>
-          <% end %>
-        </ol>
+          <% end %>       
         <%= link_to_add_association 'add timeslot', f, :timeslots %>
       </fieldset>                                     
     </div>  
-    <br/>    
-    <div class="row">    
-      <%= f.submit(@klass.new_record? ? 'Create Class' : 'Update Class', class: 'btn btn-primary')%>
-    </div>      
-  <% end %>
+    <br/>       
 </div>
+  <%= f.submit(@klass.new_record? ? 'Create Class' : 'Update Class', class: 'btn btn-primary')%>
+<% end %>

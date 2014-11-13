@@ -1,3 +1,6 @@
-<div class='control-group container'>          
-  <%= f.collection_select :topic_ids, Topic.all, :id, :name, include_blank: true %>    
-</div>      
+<li class="control-group nested-fields">
+  <div class="control-group">
+    <%= f.label :topics %>
+    <%= f.grouped_collection_select :topic_ids, Programme.order(:name), :topics, :name, :id, :name, include_blank: true %>  
+  </div>
+</li>

@@ -2,8 +2,8 @@ class TimeslotsController < ApplicationController
 
   def index
     @timeslots = Timeslot.all
-    @timeslots_by_date = @timeslots.group_by(&:starts_at)
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today    
+    @timeslots_by_date = @timeslots.group_by {|i| i.starts_at.to_date} #this should show the timeslots
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today  #this shows the month  
   end
 
   def show

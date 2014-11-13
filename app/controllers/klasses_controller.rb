@@ -11,6 +11,7 @@ class KlassesController < ApplicationController
   end
 
   def create
+    binding.pry    
     @intake = Intake.find(params[:intake_id])          
     @klass = @intake.klasses.build(klass_params)
 
@@ -28,7 +29,6 @@ class KlassesController < ApplicationController
   end
 
   def update
-    binding.pry
     @intake = Intake.find(params[:intake_id])      
     @klass = @intake.klasses.find(params[:id])  
     if @klass.update(klass_params)
@@ -46,7 +46,7 @@ class KlassesController < ApplicationController
   #  timeslots_attributes = klass_attributes.delete("timeslots")
   #  @klass = Klass.new(klass_attributes)
   #  @klass.timeslots = timeslots_attributes.map{|c| Timeslot.new(c)}
-    params.require(:klass).permit(:name, :programme_ids, :centre_ids, :timeslot_ids, :room_ids, topic_ids: [], :timeslots_attributes => [:id, :starts_at, :_destroy])
+    params.require(:klass).permit(:name, :programme_ids, :centre_ids, :timeslot_ids, :room_ids, :topic_ids, :timeslots_attributes => [:id, :starts_at, :topic_ids, :_destroy])
 
   end
 

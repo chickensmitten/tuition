@@ -14,7 +14,7 @@
     <% if @timeslots_by_date[date] %>
       <ul>
         <% @timeslots_by_date[date].each do |timeslot| %>
-          <li><%= link_to timeslot.name, timeslot %></li>
+          <li><%= link_to timeslot.starts_at, timeslot %></li>
         <% end %>
       </ul>
     <% end %>
@@ -22,9 +22,4 @@
 </div>
 <br/>
 
-<p class= 'container'>
-<% @timeslots.each do |timeslot| %>
-  <%= render 'timeslot', timeslot: timeslot %>
-<% end %>
-</p>
 

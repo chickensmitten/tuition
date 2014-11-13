@@ -9,6 +9,8 @@ class Topic < ActiveRecord::Base
   has_many :klass_topics
   has_many :klasses, through: :klass_topics
 
+  accepts_nested_attributes_for :klasses, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :klass_topics, :reject_if => :all_blank, allow_destroy: :true  
   accepts_nested_attributes_for :user_topics
   accepts_nested_attributes_for :topic_intakes
   accepts_nested_attributes_for :topic_timeslots
