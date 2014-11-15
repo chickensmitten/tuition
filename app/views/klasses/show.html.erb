@@ -1,0 +1,28 @@
+<p class='pull-right'>  
+  [<%= link_to 'Edit this Class', edit_intake_klass_path(@intake, @klass)%>]
+</p>
+<%= render 'shared/content_title', title: @klass.name %>            
+<div class='well'>
+  <% @klass.centres.each do |centre| %>            
+    <h4>Centre</h4> 
+    <h5><%= centre.name %></h5>  
+    <% end %>  
+    <br/>
+  <% @klass.rooms.each do |room| %>            
+    <h4>Occupied Room</h4> 
+    <h5><%= room.name %></h5>  
+    <% end %>
+    <br/>                
+  <% @klass.programmes.each do |programme| %>            
+    <h4>Programme</h4>     
+    <h5><%= programme.name %></h5>  
+    <br/>      
+    <h4>Topics</h4>     
+    <% @klass.timeslots.each do |timeslot| %>         
+      <p><%= timeslot.starts_at %></p>
+      <% timeslot.topics.each do |topic| %>
+      <p><%= topic.name %></P>
+      <% end %>
+    <% end %>      
+  <% end %>     
+</div>  

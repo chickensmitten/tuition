@@ -1,0 +1,21 @@
+
+<div class='well'>
+<%= render 'shared/errors', obj: @intake %>
+  <%= form_for @intake do |f| %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>      
+    <div class='control-group'>      
+      <%= f.label :start_date %>
+      <%= f.date_select :start_date %>         
+    </div>
+    <div class='control-group'>
+      <%= f.label "Programmes" %>
+      <%= f.collection_check_boxes :programme_ids, Programme.all, :id, :name do |cb|%>
+        <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+    </div>    
+    <%= f.submit(@intake.new_record? ? 'Create Intake' : 'Update Intake', class: 'btn btn-primary')%>
+  <% end %>
+</div>

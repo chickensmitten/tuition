@@ -10,11 +10,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bcrypt', '~> 3.1.7' #may need to clean up two different bcrypts
 gem 'bcrypt-ruby'
+gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'simple_form'
+gem 'cocoon'
 
 group :development do
   gem 'quiet_assets'

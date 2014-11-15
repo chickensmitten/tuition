@@ -11,16 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106013610) do
+ActiveRecord::Schema.define(version: 20141114083410) do
 
   create_table "academies", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "centre_intakes", force: true do |t|
+    t.integer  "centre_id"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "centre_timeslots", force: true do |t|
+    t.integer  "centre_id"
+    t.integer  "timeslot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,11 +47,77 @@ ActiveRecord::Schema.define(version: 20141106013610) do
     t.integer  "academy_id"
   end
 
+  create_table "intakes", force: true do |t|
+    t.string   "name"
+    t.integer  "programme_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "centre_id"
+    t.integer  "user_id"
+    t.datetime "start_date"
+  end
+
+  create_table "klass_centres", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "centre_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_dates", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "date_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_programmes", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "programme_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_rooms", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_timeslots", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klass_topics", force: true do |t|
+    t.integer  "klass_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "klasses", force: true do |t|
+    t.string   "name"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "url"
     t.text     "description"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programme_intakes", force: true do |t|
+    t.integer  "intake_id"
+    t.integer  "programme_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +146,21 @@ ActiveRecord::Schema.define(version: 20141106013610) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "starts_at"
+  end
+
+  create_table "topic_intakes", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topic_timeslots", force: true do |t|
+    t.integer  "topic_id"
+    t.integer  "timeslot_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "topics", force: true do |t|
@@ -79,6 +175,20 @@ ActiveRecord::Schema.define(version: 20141106013610) do
 
   create_table "user_categories", force: true do |t|
     t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_intakes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "intake_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_klasses", force: true do |t|
+    t.integer  "klass_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

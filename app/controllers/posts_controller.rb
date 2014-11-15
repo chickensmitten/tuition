@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  before_action :require_user
 
   def index
-    @posts = Post.all
+    @posts = @current_user.posts
   end
 
   def show
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = User.first
+    @post.user = current_user
 
     if @post.save
       flash[:notice] = "Your post was created."

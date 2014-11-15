@@ -1,0 +1,18 @@
+<div id="timeslots">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_week %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_week %>
+  </h2>
+  <%= calendar_week @date do |date| %>
+    <%= date.day %>
+    <% if @timeslots_by_date[date] %>
+      <ul>
+        <% @timeslots_by_date[date].each do |timeslot| %>
+          <li><%= link_to timeslot.starts_at, timeslot %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<br/>

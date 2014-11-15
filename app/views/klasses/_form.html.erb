@@ -1,0 +1,34 @@
+
+<div class='well'>
+  <%= render 'shared/errors', obj: @klass %>  
+  <%= form_for [@intake, @klass] do |f| %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>        
+    <div class='control-group'>
+      <%= f.label "Centres" %>
+      <%= f.grouped_collection_select :centre_ids, Academy.order(:name), :centres, :name, :id, :name, include_blank: true %>        
+    </div>     
+    <div class='control-group'>
+      <%= f.label "Rooms" %>
+      <%= f.grouped_collection_select :room_ids, Centre.order(:name), :rooms, :name, :id, :name, include_blank: true %>        
+    </div>    
+    <div class='control-group'>
+      <%= f.label :programmes %>
+      <%= f.collection_select :programme_ids, Programme.order(:name), :id, :name, include_blank: true %>        
+    </div>      
+   
+    <div class="row">
+      <div class="col-md-12">  
+      <fieldset id="klass-timeslots">      
+          <%= f.fields_for :timeslots do |timeslot| %>
+            <%= render 'timeslot_fields', f: timeslot %>
+          <% end %>       
+        <%= link_to_add_association 'add topics and timeslot', f, :timeslots %>
+      </fieldset>                                     
+    </div>  
+    <br/>       
+</div>
+  <%= f.submit(@klass.new_record? ? 'Create Class' : 'Update Class', class: 'btn btn-primary')%>
+<% end %>

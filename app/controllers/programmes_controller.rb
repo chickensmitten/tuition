@@ -43,7 +43,7 @@ class ProgrammesController < ApplicationController
   private
 
   def programme_params
-    params.require(:programme).permit(:name)
+    params.require(:programme).permit(:name, :klass_ids, klasses_attributes: [klass_programmes_attributes: [klass_attributes:[]]])
   end
 
 end

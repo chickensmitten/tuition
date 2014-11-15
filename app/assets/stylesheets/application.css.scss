@@ -10,8 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_self 
+ *= require bootstrap.min
  *= require_tree .
- *= require_self
  */
 
 @import "bootstrap-sprockets";
@@ -48,6 +49,7 @@ hr.side {
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
+.hidden { display:none}
 
 
 

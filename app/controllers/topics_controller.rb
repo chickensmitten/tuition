@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new    
     @programme = Programme.find(params[:programme_id])    
     @topic = @programme.topics.new
   end
@@ -20,6 +21,8 @@ class TopicsController < ApplicationController
     #alternative syntax  
     #@topic = Topic.new(topic_params)
     #@programme.topic = @topic
+
+    #need to associate with user, fix after authentication
 
     if @topic.save
       flash[:notice] = "Your topic was created."
@@ -51,3 +54,12 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:name, :number)
   end
 end
+
+
+
+
+
+
+
+
+

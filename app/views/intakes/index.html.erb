@@ -1,0 +1,13 @@
+<%= render 'shared/content_title', title: 'All Intakes' %>
+<p class='pull-right'>
+  <%= link_to 'New Intake', new_intake_path, class: 'btn btn-success btn-small navbar-btn' %>
+</p>      
+<p class= 'container'>
+  <% @intakes.each do |intake| %>
+    <div class="row">
+      <div class='span8 well'>
+        <h3><%= link_to intake.name, intake_path(intake) %></h3>
+      </div>
+    </div>
+  <% end %>
+</p>

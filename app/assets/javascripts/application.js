@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require bootstrap.min
 //= require turbolinks
+//= require cocoon
+//= require_self
 //= require_tree .
-

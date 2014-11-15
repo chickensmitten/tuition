@@ -1,0 +1,8 @@
+<p class='pull-right'> 
+  [<%= link_to 'Create a class', new_intake_klass_path(@intake, @klass)%>]   
+  [<%= link_to 'Edit this Intake', edit_intake_path(@intake)%>]
+</p>
+
+<%= render 'shared/content_title', title: @intake.name %>
+
+<%= render 'klasses/klass' %>

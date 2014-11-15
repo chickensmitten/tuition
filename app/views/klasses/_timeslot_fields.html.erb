@@ -1,0 +1,9 @@
+<li class="control-group nested-fields">
+  <div class="control-group">
+    <%= f.label :topics %>
+    <%= f.grouped_collection_select :topic_ids, Programme.order(:name), :topics, :name, :id, :name, include_blank: true %>      
+    <%= f.label :starts_at, "Timeslot:" %>
+    <%= f.datetime_select :starts_at %> 
+    <%= link_to_remove_association "remove", f %>
+  </div>
+</li>
