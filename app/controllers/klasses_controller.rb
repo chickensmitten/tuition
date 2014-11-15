@@ -1,8 +1,8 @@
 class KlassesController < ApplicationController
 
-  def show
+  def show    
     @intake = Intake.find(params[:intake_id])      
-    @klass = @intake.klasses.find(params[:id])    
+    @klass = @intake.klasses.find(params[:id]) 
   end
 
   def new
@@ -10,8 +10,7 @@ class KlassesController < ApplicationController
     @klass = @intake.klasses.new
   end
 
-  def create
-    binding.pry    
+  def create 
     @intake = Intake.find(params[:intake_id])          
     @klass = @intake.klasses.build(klass_params)
 

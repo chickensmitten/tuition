@@ -1,6 +1,0 @@
-<li class="control-group nested-fields">
-  <div class="control-group">
-    <%= f.label :topics %>
-    <%= f.grouped_collection_select :topic_ids, Programme.order(:name), :topics, :name, :id, :name, include_blank: true %>  
-  </div>
-</li>

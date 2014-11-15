@@ -1,9 +1,6 @@
 class TimeslotsController < ApplicationController
 
-  def index
-    @timeslots = Timeslot.all
-    @timeslots_by_date = @timeslots.group_by {|i| i.starts_at.to_date} #this should show the timeslots
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today  #this shows the month  
+  def index 
   end
 
   def show
@@ -38,6 +35,18 @@ class TimeslotsController < ApplicationController
       render :edit
     end
   end
+
+  def week    
+    @timeslots = Timeslot.all
+    @timeslots_by_date = @timeslots.group_by {|i| i.starts_at.to_date} #this should show the timeslots
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today  #this shows the month  
+  end
+
+  def month
+    @timeslots = Timeslot.all
+    @timeslots_by_date = @timeslots.group_by {|i| i.starts_at.to_date} #this should show the timeslots
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today 
+  end  
 
   private
 

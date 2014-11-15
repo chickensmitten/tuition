@@ -1,3 +1,4 @@
+
 <ul class="nav nav-pills nav-stacked" role="tablist">
   <li role="presentation" class='<%= 'active' if params[:tab] == 'dashboard' %>'>
   <%= link_to 'Dashboard', posts_path(@user, tab: 'dashboard') %>  
@@ -13,7 +14,7 @@
   <li role="presentation" class='<%= 'active' if params[:tab] == 'academy' %>'>  
   <%= link_to 'Academy', academies_path(@user, tab: 'academy')  %>
   </li>
-  <li role="presentation" class='<%= 'active' if params[:tab] == 'timeslot' %>'>  
-  <%= link_to 'Timetable', timeslots_path(@user, tab: 'timeslot')  %>
+  <li role="presentation" class='<%= 'active' if params[:tab] == 'month' %>'>  
+  <%= link_to 'Timetable', monthly_view_timeslots_path(@user, tab: 'month')  %>
   </li>  
 </ul>

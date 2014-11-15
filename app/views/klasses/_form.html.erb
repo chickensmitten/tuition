@@ -25,7 +25,7 @@
           <%= f.fields_for :timeslots do |timeslot| %>
             <%= render 'timeslot_fields', f: timeslot %>
           <% end %>       
-        <%= link_to_add_association 'add timeslot', f, :timeslots %>
+        <%= link_to_add_association 'add topics and timeslot', f, :timeslots %>
       </fieldset>                                     
     </div>  
     <br/>       

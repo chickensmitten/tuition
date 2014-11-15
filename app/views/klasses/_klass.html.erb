@@ -1,21 +1,21 @@
 
 <div class="row">
   Start Date:
-  <h5><%= link_to @intake.start_date %></h5>
+  <h5><%= @intake.start_date %></h5>
 </div>
 
 
 <% @intake.klasses.each do |klass| %>    
 <div class="row">
 <div class="well">      
-  <%= klass.name%>              
+  <h4><%= link_to klass.name, intake_klass_path(@intake, klass)%></h4> 
     <% klass.programmes.each do |programme| %>            
-      <%= programme.name %>  
-        <% klass.topics.each do |topic| %>            
-          <%= topic.number %>
-          <%= topic.name %>
-        <% end %>
-      <% end %>            
+      <h5><%= programme.name %></h5>  
+      <% klass.topics.each do |topic| %>            
+        <p><%= topic.number %>) <%= topic.name %></p>
+      <% end %>
+    <% end %>
+    <p><%=  %></p>
       [<%= link_to 'Edit this Class', edit_intake_klass_path(@intake, klass)%>]  
     </div>
   </div>

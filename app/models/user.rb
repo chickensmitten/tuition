@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :posts
+  has_one :academy
   has_many :user_topics
   has_many :topics, through: :user_topics  
   has_many :user_programmes

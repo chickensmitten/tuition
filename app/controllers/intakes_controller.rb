@@ -15,6 +15,7 @@ class IntakesController < ApplicationController
   end
 
   def create
+    binding.pry
     @intake = Intake.new(intake_params)
     if @intake.save
       flash[:notice] = "Your Intake was created."
@@ -41,7 +42,7 @@ class IntakesController < ApplicationController
   private
 
   def intake_params
-    params.require(:intake).permit(:name, :"start_date(1i).to_i", :"start_date(2i).to_i", :"start_date(3i).to_i", :user_id, programme_ids: [], centre_ids: [])
+    params.require(:intake).permit(:name, :start_date, :user_id, programme_ids: [], centre_ids: [])
   end
 
   def flatten_date_array hash
