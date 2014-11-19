@@ -5,9 +5,21 @@ class UsersController < ApplicationController
   def show
   end
 
-  def new
+  def student
     @user = User.new
   end
+
+  def staff
+    @user = User.new
+  end  
+
+  def parent
+    @user = User.new
+  end  
+
+  def new
+    @user = User.new
+  end  
 
   def create
     @user = User.new(user_params)
@@ -40,7 +52,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :academy_id)
+    params.require(:user).permit(:username, :password, :academy_id, :centre_id, :programme_ids, :category_ids)
   end
 
   def set_user

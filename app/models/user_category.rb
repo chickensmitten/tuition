@@ -1,4 +1,4 @@
 class UserCategory < ActiveRecord::Base
-  belongs_to :post
+  belongs_to :category
   belongs_to :user
 end

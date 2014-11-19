@@ -1,0 +1,24 @@
+
+  <div class='well'>
+    <%= form_for @user do |f| %>
+      <div class='control-group'>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
+      <div class='control-group'>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class='control-group'>
+        <%= f.label :centre %>
+        <%= f.password_field :centre %>
+      </div>      
+      <% if require_admin? %>
+      <div class='control-group'>
+        <%= f.label :categories %>
+        <%= f.collection_select :category_ids, Category.order(:name), :id, :name, include_blank: true %>        
+      </div>    
+      <% end %>
+      <%= f.submit (@user.new_record? ? "Register" : "Update Profile"), class: 'btn btn-success' %>
+    <% end %>   
+  </div>

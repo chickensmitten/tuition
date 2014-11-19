@@ -11,8 +11,9 @@ class Programme < ActiveRecord::Base
   has_many :klasses, through: :klass_programmes   
 
   accepts_nested_attributes_for :topics
-  accepts_nested_attributes_for :user_programmes
   accepts_nested_attributes_for :programme_timeslots
   accepts_nested_attributes_for :programme_intakes
-  accepts_nested_attributes_for :klass_programmes      
+  accepts_nested_attributes_for :klass_programmes  
+  accepts_nested_attributes_for :users, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :user_programmes, :reject_if => :all_blank, allow_destroy: :true      
 end

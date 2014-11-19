@@ -1,7 +1,5 @@
 
 <ul class="nav nav-pills nav-stacked" role="tablist">
-  <li role="presentation" class='<%= 'active' if params[:tab] == 'dashboard' %>'>
-  <%= link_to 'Dashboard', posts_path(@user, tab: 'dashboard') %>  
   <li role="presentation" class='<%= 'active' if params[:tab] == 'announcements' %>'>
   <%= link_to 'Announcements', posts_path(@user, tab: 'announcements') %>
   </li>

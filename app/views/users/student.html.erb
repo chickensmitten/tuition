@@ -1,0 +1,18 @@
+<h3>Welcome Student</h3>
+  <div class='well'>
+    <%= form_for @user do |f| %>
+      <div class='control-group'>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
+      <div class='control-group'>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div class='control-group'>
+        <%= f.hidden_field :category_ids, :value => 2 %>
+      </div>        
+      <br/>                
+      <%= f.submit (@user.new_record? ? "Register" : "Update Profile"), class: 'btn btn-success' %>
+    <% end %>   
+  </div>

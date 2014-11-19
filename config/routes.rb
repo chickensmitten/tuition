@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'users#landing'
   
+  get '/customer_registration', to: 'users#customer'
+  get '/staff_registration', to: 'users#staff'
+  get '/parent_registration', to: 'users#parent'
+  get '/student_registration', to: 'users#student'    
   get '/register', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

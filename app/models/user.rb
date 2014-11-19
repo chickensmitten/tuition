@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :posts
   accepts_nested_attributes_for :user_topics
-  accepts_nested_attributes_for :user_programmes
+  accepts_nested_attributes_for :programmes, :reject_if => :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :user_programmes, :reject_if => :all_blank, allow_destroy: :true
   accepts_nested_attributes_for :user_categories
   accepts_nested_attributes_for :user_timeslots
   accepts_nested_attributes_for :user_intakes
@@ -27,5 +28,17 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, on: :create, length: {minimum: 6}
+
+  def super_admin?
+    self.role == 'super admin'
+  end
+
+  def admin?
+    self.role == 'admin'
+  end
+
+  def moderator?
+    self.role == 'moderator'
+  end
 
 end

@@ -8,6 +8,9 @@
       <div class='nav_item btn btn-small navbar-btn'>      
         Welcome, <%= current_user.username %>
       </div>    
+      <div class='nav_item btn'>
+        <%= link_to "New Roles", new_category_path, class: 'btn btn-success btn-small navbar-btn' %>
+      </div>         
       <div class='nav_item btn btn-small navbar-btn'>
         <%= link_to edit_user_path(current_user) do %>
           edit profile
@@ -22,13 +25,13 @@
         <%= link_to logout_path do %>
           logout
         <% end %>
-      </div>
+      </div>   
     </ul>    
 
   <% else # logged out%>
     <ul class="nav navbar-nav navbar-right">  
       <div class='nav_item'>
-        <%= link_to 'Register', register_path, class: 'btn btn-success btn-small navbar-btn' %>
+        <%= link_to 'Register', customer_registration_path, class: 'btn btn-success btn-small navbar-btn' %>
       </div>
       <div class='nav_item'>
         <%= link_to 'Log in', login_path, class: 'btn btn-warning btn-small navbar-btn' %>
