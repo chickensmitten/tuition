@@ -9,19 +9,21 @@
 <body>
   <header>
 <nav class="navbar navbar-default" role="navigation">
-      <% if logged_in? %>        
-        <div class="container-fluid">        
-          <%= render 'layouts/navigation' %>
-        </div>
-      <% else %>
-        <div class="container container-fluid">        
-          <%= render 'layouts/navigation' %>
-        </div>        
-      <% end %>
+  <% if logged_in? %>        
+    <div class="container-fluid">        
+      <%= render 'layouts/navigation' %>
+    </div>
+  <% else %>
+    <div class="container container-fluid">        
+      <%= render 'layouts/navigation' %>
+    </div>        
+  <% end %>
         
 </nav>
   </header>  
   <div id="main" role="main">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <div class="container-fluid">
        <div class="row">
           <% if logged_in? %>

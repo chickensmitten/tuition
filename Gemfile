@@ -18,6 +18,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'simple_form'
 gem 'cocoon'
 
+
 group :development do
   gem 'quiet_assets'
   gem 'pry'
